@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from "react-router-dom";
 import home from '../../img/home.png'
 import my from '../../img/my.jpg'
+import { List, ListItem } from '@mui/material';
 // import { NavHashLink } from 'react-router-hash-link';
 
 const pages = ['Home', 'About', 'Blog', 'Contact Us', 'Reserve Your Table'];
@@ -60,7 +61,9 @@ const ResponsiveAppBar = () => {
                             textDecoration: 'none',
                         }}
                     >
-                        <Avatar alt="Remy Sharp" src={home} />
+                        <Link to="/">
+                            <Avatar alt="Remy Sharp" src={home} />
+                        </Link>
 
                     </Typography>
 
@@ -93,11 +96,29 @@ const ResponsiveAppBar = () => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {pages.map((page) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
-                                </MenuItem>
-                            ))}
+                            {/* {pages.map((page) => ( */}
+                            <MenuItem onClick={handleCloseNavMenu}>
+                                <List>
+                                    <Link to="/" style={{
+                                        textDecoration: "none",
+                                    }}>
+                                        <ListItem sx={{
+                                            color: "black",
+                                        }}>Home</ListItem>
+                                    </Link>
+                                    <ListItem>About</ListItem>
+                                    <ListItem>Blog</ListItem>
+                                    <ListItem>Contact us</ListItem>
+                                    <Link to="/Reservetable" style={{
+                                        textDecoration: "none",
+                                    }}>
+                                        <ListItem sx={{
+                                            color: "black",
+                                        }}>Reserve Your Table</ListItem>
+                                    </Link>
+                                </List>
+                            </MenuItem>
+                            {/* ))} */}
                         </Menu>
                     </Box>
                     <Typography
@@ -116,33 +137,41 @@ const ResponsiveAppBar = () => {
                             textDecoration: 'none',
                         }}
                     >
-                        <Avatar alt="Remy Sharp" src={home} />
-
-
+                        <Link to="/">
+                            <Avatar alt="Remy Sharp" src={home} />
+                        </Link>
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-                        <Button
-                        // key={page}
-                        // onClick={handleCloseNavMenu}
-                        // sx={{ my: 2, color: 'white', display: 'block' }}
-                        >
-                        </Button>
-                        <Button>
-                            Home
-                        </Button>
-                        <Button>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', color: "white" } }}>
+                        <Link to="/" style={{
+                            textDecoration: "none",
+                        }}>
+                            <Button sx={{
+                                color: "white"
+                            }}>
+                                Home
+                            </Button>
+                        </Link>
+                        <Button sx={{
+                            color: "white"
+                        }}>
                             About
                         </Button>
-                        <Button>
+                        <Button sx={{
+                            color: "white"
+                        }}>
                             Blog
                         </Button>
-                        <Button>
+                        <Button sx={{
+                            color: "white"
+                        }}>
                             Contact us
                         </Button>
-
-
-                        <Link to="/Reservetable">
-                            <Button>
+                        <Link to="/Reservetable" style={{
+                            textDecoration: "none"
+                        }}>
+                            <Button sx={{
+                                color: "white"
+                            }}>
                                 Reserve Your Table
                             </Button>
                         </Link>
