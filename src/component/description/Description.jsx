@@ -24,7 +24,7 @@ const Description = (images) => {
         setOpen(false);
     };
     return (
-        <div>
+        <div id='home'>
             <Grid container
                 sx={{
                     justifyContent: "center",

@@ -1,13 +1,10 @@
-import { Avatar, Box, Grid, Typography, TextField } from '@mui/material'
-import InputAdornment from '@mui/material/InputAdornment';
-import React from 'react'
+import { Avatar, Box, Grid, Typography } from '@mui/material';
+import React from 'react';
 import home from '../../img/home.png'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-// import SearchIcon from '@mui/icons-material/Search';
-import SearchIcon from '@mui/icons-material/Search';
 
 const Foter = () => {
   return (
@@ -15,7 +12,6 @@ const Foter = () => {
       <Grid container
         sx={{
           mt: "100px",
-          // ml: "100px"
         }}>
         <Grid item xs={12} md={3}
           sx={{
@@ -37,22 +33,35 @@ const Foter = () => {
               width: "160px",
               margin: "auto"
             }}>
-            <Avatar
-              sx={{
-                background: "rgba(44,29,22,255)",
-              }}><FacebookIcon /></Avatar>
-            <Avatar
-              sx={{
-                background: "rgba(44,29,22,255)",
-              }}><InstagramIcon /></Avatar>
-            <Avatar
-              sx={{
-                background: "rgba(44,29,22,255)",
-              }}><TwitterIcon /></Avatar>
-            <Avatar
-              sx={{
-                background: "rgba(44,29,22,255)",
-              }}><WhatsAppIcon /></Avatar>
+            <a href="https://web.facebook.com/" target="_blank">
+              <Avatar
+                sx={{
+                  background: "rgba(44,29,22,255)",
+                }}>
+                <FacebookIcon />
+              </Avatar>
+            </a>
+
+            <a href="https://www.instagram.com/" target="_blank">
+              <Avatar
+                sx={{
+                  background: "rgba(44,29,22,255)",
+                }}><InstagramIcon /></Avatar>
+            </a>
+
+            <a href="https://twitter.com/home" target="_blank">
+              <Avatar
+                sx={{
+                  background: "rgba(44,29,22,255)",
+                }}><TwitterIcon /></Avatar>
+            </a>
+
+            <a href="https://wa.me/message/PYRPB5XT6Y54A1" target="_blank">
+              <Avatar
+                sx={{
+                  background: "rgba(44,29,22,255)",
+                }}><WhatsAppIcon /></Avatar>
+            </a>
           </Box>
 
         </Grid>

@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
 import './form.css'
 
 const Login = () => {
@@ -17,7 +13,6 @@ const Login = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setloginData({ ...loginData, [name]: value })
-    // console.log(loginData)
   }
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -48,10 +43,9 @@ const Login = () => {
     return error;
   }
   return (
-    <div className='login-container'>
+    <div className='login-container' id='contact'>
 
       <div className='login-container-child2'>
-        {/* {Object.keys(loginDataErrors).length === 0 && isLogin ? toast.success('login successfull') : ""} */}
         <form action="" onSubmit={handleSubmit}>
           <h2 className='h1'>Contact Us</h2>
           <input className='input1'

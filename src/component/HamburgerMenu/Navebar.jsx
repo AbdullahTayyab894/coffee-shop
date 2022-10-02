@@ -11,11 +11,11 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
+import { HashLink as Link } from 'react-router-hash-link';
 import home from '../../img/home.png'
 import my from '../../img/my.jpg'
 import { List, ListItem } from '@mui/material';
-// import { NavHashLink } from 'react-router-hash-link';
 
 const pages = ['Home', 'About', 'Blog', 'Contact Us', 'Reserve Your Table'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -96,7 +96,6 @@ const ResponsiveAppBar = () => {
                                 display: { xs: 'block', md: 'none' },
                             }}
                         >
-                            {/* {pages.map((page) => ( */}
                             <MenuItem onClick={handleCloseNavMenu}>
                                 <List>
                                     <Link to="/" style={{
@@ -118,7 +117,6 @@ const ResponsiveAppBar = () => {
                                     </Link>
                                 </List>
                             </MenuItem>
-                            {/* ))} */}
                         </Menu>
                     </Box>
                     <Typography
@@ -142,30 +140,34 @@ const ResponsiveAppBar = () => {
                         </Link>
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', color: "white" } }}>
-                        <Link to="/" style={{
-                            textDecoration: "none",
-                        }}>
+                        <Link to="#home" smooth>
                             <Button sx={{
                                 color: "white"
                             }}>
                                 Home
                             </Button>
                         </Link>
-                        <Button sx={{
-                            color: "white"
-                        }}>
-                            About
-                        </Button>
-                        <Button sx={{
-                            color: "white"
-                        }}>
-                            Blog
-                        </Button>
-                        <Button sx={{
-                            color: "white"
-                        }}>
-                            Contact us
-                        </Button>
+                        <Link to="#about" smooth>
+                            <Button sx={{
+                                color: "white"
+                            }}>
+                                About
+                            </Button>
+                        </Link>
+                        <Link to="#slider" smooth>
+                            <Button sx={{
+                                color: "white"
+                            }}>
+                                Blog
+                            </Button>
+                        </Link>
+                        <Link to="#contact" smooth>
+                            <Button sx={{
+                                color: "white"
+                            }}>
+                                Contact us
+                            </Button>
+                        </Link>
                         <Link to="/Reservetable" style={{
                             textDecoration: "none"
                         }}>

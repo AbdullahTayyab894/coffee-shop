@@ -19,6 +19,7 @@ function App() {
         <Route path='/' element={<>
           <Description />
           <Slider />
+          <About />
           <Accourdian />
           <Login />
           <ActionAreaCard />

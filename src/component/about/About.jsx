@@ -2,16 +2,13 @@ import React from 'react'
 import { Typography, Grid, Box, Button } from '@mui/material'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
-import './about.css'
-
-
 import s3 from '../../img/s3.jpg'
+import './about.css'
 
 const About = () => {
     return (
-        <div>
+        <div id='about'>
             <Grid container>
                 <Grid item xs={12} md={6} >
                     <Box

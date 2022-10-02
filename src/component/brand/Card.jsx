@@ -4,8 +4,6 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { Typography, Grid } from '@mui/material';
 import { CardActionArea } from '@mui/material';
-// import {data} from './CardApi'
-
 import lavazza from '../../img/lavazza.png'
 import starbucks from '../../img/starbucks.webp'
 import nescafe from '../../img/nescafe.png'
@@ -34,7 +32,6 @@ export default function ActionAreaCard() {
             <Grid container
                 sx={{
                     mt: "100px",
-                    // ml: "50px"
                 }}>
                 {
                     data.map((item) => {
@@ -45,9 +42,9 @@ export default function ActionAreaCard() {
                                 <Card sx={{
                                     maxWidth: 345,
                                     display: "flex",
-                                    border:"2px solid rgba(75,59,48,255)",
-                                    borderRadius:"20px",
-                                    margin:"auto"
+                                    border: "2px solid rgba(75,59,48,255)",
+                                    borderRadius: "20px",
+                                    margin: "auto"
                                 }}>
                                     <CardActionArea>
                                         <CardMedia
@@ -56,19 +53,14 @@ export default function ActionAreaCard() {
                                             image={img}
                                             alt="green iguana"
                                         />
-                                        <CardContent
-                                            sx={{
-                                                // background: "rgba(44,29,22,255)",
-                                                // color: "white"
-                                            }}>
+                                        <CardContent>
                                             <Typography gutterBottom variant="h5" component="div">
                                                 {name}
                                             </Typography>
                                             <Typography variant="body2" color="text.secondary"
-                                            sx={{
-                                                // color:"white",
-                                                textAlign:"justify"
-                                            }}>
+                                                sx={{
+                                                    textAlign: "justify"
+                                                }}>
                                                 {detail}
                                             </Typography>
                                         </CardContent>
