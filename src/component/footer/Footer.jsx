@@ -1,12 +1,24 @@
-import { Avatar, Box, Grid, Typography } from '@mui/material';
 import React from 'react';
+import { Avatar, Box, Grid, Typography, InputAdornment, Input } from '@mui/material';
+import { useForm, Controller } from "react-hook-form";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import home from '../../img/home.png'
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import SendRoundedIcon from '@mui/icons-material/SendRounded';
 
 const Foter = () => {
+  const {register, handleSubmit, formState: { errors }, reset } = useForm();
+
+  const onSubmit = (e) => {
+    console.log(e)
+    toast.success("Successfully submitted")
+    // e.preventDefault();
+    reset()
+  }
   return (
     <div>
       <Grid container
@@ -128,12 +140,23 @@ const Foter = () => {
           <Typography>
             Lorem ipsum dolor sit amet.
           </Typography>
-          <Typography>
-            <input type="text" name="" id="" style={{
-              width: "195px",
-              height: "30px"
-            }} />
-          </Typography>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <input style={{
+              width:"220px",
+              height:"40px",
+              paddingLeft:"10px"
+            }}
+              placeholder='Enter your email'
+              {...register("mail", {
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: "Invalid email address"
+                }
+              }, { required: "Email Address is required" })}
+              aria-invalid={errors.mail ? "true" : "false"} />
+            {errors.mail && <p role="alert">{errors.mail?.message}</p>}
+
+          </form>
         </Grid>
       </Grid>
     </div>

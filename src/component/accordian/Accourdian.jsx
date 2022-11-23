@@ -8,14 +8,17 @@ import { data } from './AccourdianApi'
 
 export default function SimpleAccordion() {
     return (
-        <div style={{
+        <div 
+        id='faq'
+        style={{
             marginTop: "100px"
         }}>
-            <Typography variant='h3'
+            <Typography variant='h4'
                 sx={{
                     color: "white",
                     textAlign: "center",
-                    pb: "10px"
+                    pb: "10px",
+                    minWidth:"350px"
                 }}>
                 COMMON CUSTOMER QUESTION
             </Typography>
@@ -25,7 +28,8 @@ export default function SimpleAccordion() {
                     return (
                         <Box
                             sx={{
-                                width: "60%",
+                                maxWidth: "60%",
+                                minWidth:"350px",
                                 margin: "auto",
                             }}>
                             <Accordion

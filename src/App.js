@@ -4,11 +4,14 @@ import Description from './component/description/Description';
 import Slider from './component/imgslider/Slider';
 import About from './component/about/About';
 import Accourdian from './component/accordian/Accourdian';
-import Login from './component/form/Form';
+import Contact from './component/form/Form';
 import ActionAreaCard from './component/brand/Card'
 import Foter from './component/footer/Footer';
+// import SimpleMap from './component/location/Location'
 import { Reservetable } from './component/reservetable/Reservetable';
-import { BrowserRouter, Routes, Route, Fragment } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+
 
 
 function App() {
@@ -21,12 +24,14 @@ function App() {
           <Slider />
           <About />
           <Accourdian />
-          <Login />
           <ActionAreaCard />
         </>} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/Reservetable" element={<Reservetable />} />
+        {/* <Route path="/location" element={<SimpleMap />} /> */}
       </Routes>
       <Foter />
+      <ToastContainer />
     </BrowserRouter>
   );
 }

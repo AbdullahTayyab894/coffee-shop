@@ -35,7 +35,7 @@ const Description = (images) => {
                     <Box
                         sx={{
                             marginTop: "100px",
-                            marginLeft: "50px",
+                            marginLeft: "20px",
                             textAlign: "center"
                         }}>
                         <Typography variant='h1'
@@ -107,11 +107,10 @@ const Description = (images) => {
                         sx={{
                             mt: "70px",
                             display: "block",
-                            marginLeft: "auto",
-                            marginRight: "auto",
+                            marginLeft: "80px",
                             width: "50%"
                         }}>
-                        <img src={coffee} alt="" width="300px" height="300px" />
+                        <img src={coffee} alt="" width="350px" height="300px" />
                     </Box>
                 </Grid>
 

@@ -11,14 +11,10 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-// import { Link } from "react-router-dom";
 import { HashLink as Link } from 'react-router-hash-link';
 import home from '../../img/home.png'
 import my from '../../img/my.jpg'
 import { List, ListItem } from '@mui/material';
-
-const pages = ['Home', 'About', 'Blog', 'Contact Us', 'Reserve Your Table'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 const ResponsiveAppBar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -104,17 +100,22 @@ const ResponsiveAppBar = () => {
                                         <ListItem sx={{
                                             color: "black",
                                         }}>Home</ListItem>
-                                    </Link>
-                                    <ListItem>About</ListItem>
-                                    <ListItem>Blog</ListItem>
-                                    <ListItem>Contact us</ListItem>
-                                    <Link to="/Reservetable" style={{
+                                    </Link><Link to="#about" smooth style={{
                                         textDecoration: "none",
                                     }}>
-                                        <ListItem sx={{
-                                            color: "black",
-                                        }}>Reserve Your Table</ListItem>
+                                        <ListItem>About</ListItem>
+                                    </Link><Link to="#blog" smooth style={{
+                                        textDecoration: "none",
+                                    }}>
+                                        <ListItem>Blog</ListItem>
+
+                                    </Link><Link to="#faq" smooth style={{
+                                        textDecoration: "none",
+                                    }}>
+                                        <ListItem>Faq</ListItem>
+
                                     </Link>
+
                                 </List>
                             </MenuItem>
                         </Menu>
@@ -140,41 +141,40 @@ const ResponsiveAppBar = () => {
                         </Link>
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex', color: "white" } }}>
-                        <Link to="#home" smooth>
+                        <Link to="#home" smooth style={{
+                            textDecoration: "none",
+                        }}>
                             <Button sx={{
                                 color: "white"
                             }}>
                                 Home
                             </Button>
                         </Link>
-                        <Link to="#about" smooth>
+                        <Link to="#about" smooth style={{
+                            textDecoration: "none",
+                        }}>
                             <Button sx={{
                                 color: "white"
                             }}>
                                 About
                             </Button>
                         </Link>
-                        <Link to="#slider" smooth>
+                        <Link to="#blog" smooth style={{
+                            textDecoration: "none",
+                        }}>
                             <Button sx={{
                                 color: "white"
                             }}>
                                 Blog
                             </Button>
                         </Link>
-                        <Link to="#contact" smooth>
-                            <Button sx={{
-                                color: "white"
-                            }}>
-                                Contact us
-                            </Button>
-                        </Link>
-                        <Link to="/Reservetable" style={{
-                            textDecoration: "none"
+                        <Link to="#faq" smooth style={{
+                            textDecoration: "none",
                         }}>
                             <Button sx={{
                                 color: "white"
                             }}>
-                                Reserve Your Table
+                                Faq
                             </Button>
                         </Link>
                     </Box>
@@ -186,7 +186,7 @@ const ResponsiveAppBar = () => {
                             </IconButton>
                         </Tooltip>
                         <Menu
-                            sx={{ mt: '45px' }}
+                            sx={{ mt: '45px', textAlign: "center" }}
                             id="menu-appbar"
                             anchorEl={anchorElUser}
                             anchorOrigin={{
@@ -201,11 +201,36 @@ const ResponsiveAppBar = () => {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
-                                </MenuItem>
-                            ))}
+                            <Link to="/Reservetable" style={{
+                                textDecoration: "none"
+                            }}>
+                                <Button sx={{
+                                    color: "black",
+                                    fontWeight: "bold"
+                                }}>
+                                    Reserve Your Table
+                                </Button>
+                            </Link> <br />
+                            <Link to="/contact" style={{
+                                textDecoration: "none",
+                            }}>
+                                <Button sx={{
+                                    color: "black",
+                                    fontWeight: "bold"
+                                }}>
+                                    Contact us
+                                </Button>
+                            </Link> <br />
+                            {/* <Link to="/location" style={{
+                                textDecoration: "none",
+                            }}>
+                                <Button sx={{
+                                    color: "black",
+                                    fontWeight: "bold"
+                                }}>
+                                    Location
+                                </Button>
+                            </Link> <br /> */}
                         </Menu>
                     </Box>
                 </Toolbar>

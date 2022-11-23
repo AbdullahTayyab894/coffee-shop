@@ -1,72 +1,51 @@
-import React, { useState } from 'react'
-import { useEffect } from 'react'
+import React from 'react'
+import { useForm } from "react-hook-form";
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 import './form.css'
 
-const Login = () => {
-  const initaialState = { email: "", name: "", question: "" }
-  const [loginData, setloginData] = useState(initaialState);
-  const [loginDataErrors, setloginDataErrors] = useState({});
-  const [isLogin, setisLogin] = useState(false);
-
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setloginData({ ...loginData, [name]: value })
-  }
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setloginDataErrors(validation(loginData))
-    setisLogin(true)
-
+const Contact = () => {
+  const { register, handleSubmit, formState: { errors },reset } = useForm();
+  const onSubmit = (e) => {
+    console.log(e)
+    toast.success("Successfully submitted")
+    // e.preventDefault();
+    reset()
   }
 
-  useEffect(() => {
-    if (Object.keys(loginData).length === 0 && isLogin) { }
-  }, [loginDataErrors])
 
-  const validation = (value) => {
-    let error = {};
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    if (!value.email) {
-      error.email = "Enter Email";
-    }
-    else if (!regex.test(value.email)) {
-      error.email = "Valid email is required"
-    }
-    if (!value.name) {
-      error.name = "Enter your Name";
-    }
-    if (!value.question) {
-      error.question = "Enter your Query";
-    }
-    return error;
-  }
   return (
     <div className='login-container' id='contact'>
 
       <div className='login-container-child2'>
-        <form action="" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <h2 className='h1'>Contact Us</h2>
-          <input className='input1'
+          <input
+            className='input1'
             placeholder='Enter your name'
-            type="text"
-            name="name"
-            value={loginData.name}
-            onChange={handleChange} />
-          <p className='pera'>{loginDataErrors.name}</p>
+            {...register("firstName", { required: true })}
+            aria-invalid={errors.firstName ? "true" : "false"}
+          />
+          {errors.firstName?.type === 'required' && <p role="alert">Name is required</p>}
+
           <input className='input1'
             placeholder='Enter your email'
-            type="text"
-            name="email"
-            value={loginData.email}
-            onChange={handleChange} />
-          <p className='pera'>{loginDataErrors.email}</p>
+            {...register("mail", {
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: "Invalid email address"
+              }
+            }, { required: "Email Address is required" })}
+            aria-invalid={errors.mail ? "true" : "false"} />
+          {errors.mail && <p role="alert">{errors.mail?.message}</p>}
+
           <textarea name="question" id="" cols="30" rows="40" className='input1'
-            placeholder='Query Center'
-            value={loginData.question}
-            onChange={handleChange} />
-          <p className='pera'>{loginDataErrors.question}</p>
+            placeholder='Enter your Query'
+            {...register("text", { required: true })}
+            aria-invalid={errors.text ? "true" : "false"}
+          />
+          {errors.text?.type === 'required' && <p role="alert">Query is required</p>}
           <button className='sendBtn'>Send</button>
         </form>
       </div>
@@ -74,4 +53,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Contact

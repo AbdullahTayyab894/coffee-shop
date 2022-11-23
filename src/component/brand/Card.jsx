@@ -28,10 +28,16 @@ const data = [
 
 export default function ActionAreaCard() {
     return (
-        <div>
+        <div id='blog' style={{
+            marginTop:"50px"
+        }}>
+            <Typography variant="h3" sx={{
+                color:"white",
+                textAlign:"center"
+            }}>Blog</Typography>
             <Grid container
                 sx={{
-                    mt: "100px",
+                    mt: "30px",
                 }}>
                 {
                     data.map((item) => {
